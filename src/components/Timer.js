@@ -6,7 +6,7 @@ import "../styles/timer.css";
 import { useNavigate } from "react-router-dom";
 
 function Timer() {
-  const [remainingTime, setRemainingTime] = useState(0.1 * 60);
+  const [remainingTime, setRemainingTime] = useState(30 * 60);
 
   const navigate = useNavigate();
 
