@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import StartPage from "./components/StartPage";
+import QuestionPage from "./components/QuestionPage";
+import ReportPage from "./components/ReportPage";
+
+import { fetchQuestions } from "./api/api";
+
+import { useDispatch } from "react-redux";
+import { initializeQuestions } from "./redux/actions";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const loadQuestions = async () => {
+      const questions = await fetchQuestions();
+      dispatch(initializeQuestions(questions));
+    };
+
+    loadQuestions();
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" exact element={<StartPage />} />
+          <Route path="/question/:questionIndex" element={<QuestionPage />} />
+          <Route path="/report" element={<ReportPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

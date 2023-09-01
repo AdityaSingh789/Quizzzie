@@ -1,0 +1,54 @@
+.start-container {
+  background: lightslategrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  background-color: lightslategrey;
+  padding: 20px;
+}
+
+.column:last-child {
+  padding: 65px;
+}
+
+.email-container {
+  background-color: slategray;
+  border: 1px solid #ccc;
+  padding: 35px;
+  width: 200px;
+}
+
+.input {
+  width: 90%;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.start-button {
+  width: 90%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
